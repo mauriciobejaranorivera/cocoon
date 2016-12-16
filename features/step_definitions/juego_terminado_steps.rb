@@ -10,3 +10,6 @@ Then(/^cuando presiono el boton "(.*?)"$/) do |name|
   click_button(name)
 end
 
+Then(/^mostrar el mensaje "(.*?)"$/) do |text|
+  last_response.body.should =~ /#{text}/m
+end
