@@ -1,7 +1,25 @@
 <html>
 <h1>Bienvenido al Juego del Ahorcado!</h1>	
 <br>
-<form method='post' action='/mostrar'>
+<form method='post' action='/'>
 	<%= @@ahorcado.dibujar_lineas()%>
+</br>
+<br>ingresar letra:
+<input type="text" name="letra"  />
+<input type="submit" name="adivinar" value="adivinar"/>
+intentos restantes:
+<%= 
+    @@ahorcado.descontar_intentos()
+	intentos=@@ahorcado.intentos_restantes()
+
+if (intentos<1)
+	"Perdio el Juego"
+else
+	intentos.to_s
+end
+%>
+
+
+</br> 
 </form>
 </html>
