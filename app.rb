@@ -15,3 +15,7 @@ end
 get '/juego_terminado' do
     erb:juego_terminado
 end
+
+get '/juego_ganado' do
+    erb:juego_ganado
+end
