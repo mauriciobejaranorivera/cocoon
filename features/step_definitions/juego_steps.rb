@@ -9,9 +9,8 @@ When(/^Se presiona el boton "(.*?)"$/) do |name|
   click_button(name)
 end
 
-Then(/^deberia compararse la letra con la palabra secreta "(.*?)"$/) do  |text|
-  last_response.body.should =~ /#{text}/m
+Then(/^deberia compararse la letra con la palabra secreta "(.*?)"$/) do |palabra|
+    last_response.body.should =~ /#{palabra}/m
 end
-
 
 

@@ -2,10 +2,14 @@
 
 <form method='post' action='/comparar_letra'>
 	<br><%= @@ahorcado.dibujar_lineas()%></br>
-	
+	<br><%= @lineas %></br>
 	<br>ingresar letra:
-	<input type="text" name="letra"  />
+	<input type="text" name="letra"/>
 	<input type="submit" name="adivinar" value="adivinar"/>
-	intentos restantes: <%= @intento %>
+	</br>
+	<p>
+	Intentos Restantes: <%= @intento %>
 	</br> 
+	Letras Utilizadas: <%= @letras %>
+	</p> 
 </form>
