@@ -1,4 +1,3 @@
-<html>
 <h1>Bienvenido al Juego del Ahorcado!</h1>	
 
 <form method='post' action='/comparar_letra'>
@@ -7,19 +6,6 @@
 	<br>ingresar letra:
 	<input type="text" name="letra"  />
 	<input type="submit" name="adivinar" value="adivinar"/>
-	intentos restantes:
-	<%= 
-		@@ahorcado.descontar_intentos()
-		intentos=@@ahorcado.intentos_restantes()
-
-	if (intentos<1)
-		"Perdio el Juego"
-	else
-		intentos.to_s
-	end
-	%>
-
-
+	intentos restantes: <%= @intento %>
 	</br> 
 </form>
-</html>
