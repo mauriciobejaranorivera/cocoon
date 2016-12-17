@@ -37,7 +37,7 @@ end
 
 post '/comparar_letra' do
 	@letra = params[:letra]
-	@@ahorcado.anadir_letra(@letra)
+	@@ahorcado.anadir_letra(@letra.upcase)
     @@ahorcado.descontar_intentos()
 	@intento = @@ahorcado.intentos_restantes()
 	@letras = @@ahorcado.letras_utilizadas()

@@ -1,7 +1,7 @@
 class Ahorcado
 	def initialize(tamano, cadena, intentos)
 		@tamano = tamano
-		@cadena = cadena
+		@cadena = cadena.upcase
 		@intentos = intentos
 		@letras = ""
 		@pos1 = 0
@@ -107,18 +107,18 @@ class Ahorcado
 
 	def actualizar_palabra(letra)
 
-		if letra == "C"
+		if letra.upcase == "C"
 			@pos1 = 1
 			@pos3 = 1
 		end
 
-		if letra == "O"	
+		if letra.upcase == "O"	
 			@pos2 = 1
 			@pos4 = 1
 			@pos5 = 1
 		end
 
-		if letra == "N"
+		if letra.upcase == "N"
 			@pos6 = 1
 		end
 		
@@ -131,9 +131,9 @@ class Ahorcado
 	def anadir_letra(letra)
 
 		if(@letras.length == 0)
-		  @letras = letra
+		  @letras = letra.upcase
 		else
-		 @letras = @letras + ", " + letra
+		 @letras = @letras + ", " + letra.upcase
 		end	  		
 
 	end
