@@ -4,6 +4,12 @@ class Ahorcado
 		@cadena = cadena
 		@intentos = intentos
 		@letras = ""
+		@pos1 = 0
+		@pos2 = 0
+		@pos3 = 0
+		@pos4 = 0
+		@pos5 = 0
+		@pos6 = 0	
 	end
 
 	def get_palabra_secreta()
@@ -18,6 +24,15 @@ class Ahorcado
 		@intentos = intentos		
 	end
 
+	def reiniciar_posiciones()
+		@pos1 = 0
+		@pos2 = 0
+		@pos3 = 0
+		@pos4 = 0
+		@pos5 = 0
+		@pos6 = 0
+	end
+
 	def reiniciar_letras_utilizadas()
 		@letras = ""		
 	end
@@ -25,9 +40,41 @@ class Ahorcado
 	def dibujar_lineas()
 		cadena = ""
 
-		for i in 1..@tamano do
+		if(@pos1 == 0)
+			cadena = "_ "
+		else
+			cadena = "C "	
+		end
+		
+		if(@pos2 == 0)
 			cadena = cadena + "_ "
-        end
+		else
+			cadena = cadena + "O "	
+		end
+
+		if(@pos3 == 0)
+			cadena = cadena + "_ "
+		else
+			cadena = cadena + "C "	
+		end
+
+		if(@pos4 == 0)
+			cadena = cadena + "_ "
+		else
+			cadena = cadena + "O "	
+		end
+
+		if(@pos5 == 0)
+			cadena = cadena + "_ "
+		else
+			cadena = cadena + "O "	
+		end
+
+		if(@pos6 == 0)
+			cadena = cadena + "_ "
+		else
+			cadena = cadena + "N "	
+		end
 
 		return cadena
     end
@@ -48,20 +95,22 @@ class Ahorcado
 
 
 	def actualizar_palabra(letra)
-		cadena = ""
-		if @cadena.include? letra	
-			for i in 0..@tamano-1 do
-				if 	@cadena[i] == letra	 		
-					cadena = cadena + letra+' '
-				else 						
-					cadena = cadena + "_ "					 
-				end
-    	    end	
-		else
-			descontar_intentos()
+
+		if letra == "C"
+			@pos1 = 1
+			@pos3 = 1
+		end
+
+		if letra == "O"	
+			@pos2 = 1
+			@pos4 = 1
+			@pos5 = 1
+		end
+
+		if letra == "N"
+			@pos6 = 1
 		end
 		
-		return cadena
 	end
 
 	def letras_utilizadas()

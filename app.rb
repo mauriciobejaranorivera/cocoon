@@ -2,7 +2,7 @@ require 'sinatra'
 require './lib/ahorcado.rb'
 
 configure do
-	@palabra = "cocoon"
+	@palabra = "COCOON"
 	@intento = 6
 	@@ahorcado = Ahorcado.new(@palabra.length, @palabra, @intento)
 end
@@ -10,8 +10,9 @@ end
 get '/' do
 	@intento = 6
 	@@ahorcado.reiniciar_intentos(@intento)
-	@@palabraoculta = @@ahorcado.dibujar_lineas()
-	erb:inicio    
+	@@ahorcado.reiniciar_posiciones()
+	@@ahorcado.reiniciar_letras_utilizadas()
+	erb :inicio    
 end
 
 post '/' do
@@ -36,18 +37,15 @@ end
 
 post '/comparar_letra' do
 	@letra = params[:letra]
-
-	@@palabraoculta = @@ahorcado.actualizar_palabra(@letra)
-
 	@@ahorcado.anadir_letra(@letra)
     @@ahorcado.descontar_intentos()
 	@intento = @@ahorcado.intentos_restantes()
 	@letras = @@ahorcado.letras_utilizadas()
+	@@ahorcado.actualizar_palabra(@letra)
 	@lineas = 	""
 
-
 	if (@intento < 1)
-		erb:juego_terminado
+		erb :juego_terminado
 	else
 		erb :inicio
 	end  
