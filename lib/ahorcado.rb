@@ -26,4 +26,21 @@ class Ahorcado
 	def intentos_restantes()
 		return @intentos
 	end
+
+	def actualizar_palabra(letra)
+		cadena = ""
+		if @cadena.include? letra	
+			for i in 0..@tamano-1 do
+				if 	@cadena[i] == letra	 		
+					cadena = cadena + letra+' '
+				else 						
+					cadena = cadena + "_ "					 
+				end
+    	    end	
+		else
+			descontar_intentos()
+		end
+		
+		return cadena
+	end
 end

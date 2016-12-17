@@ -10,6 +10,7 @@ end
 get '/' do
 	@intento = 6
 	@@ahorcado.reiniciar_intentos(@intento)
+	@@palabraoculta = @@ahorcado.dibujar_lineas()
 	erb:inicio    
 end
 
@@ -34,9 +35,7 @@ end
 
 post '/comparar_letra' do
 	@letra = params[:letra]
-	if @letra=='C'
-		"C _ C _ _ _"
-	else
-		"_ _ _ _ _ _"
-	end
+	@@palabraoculta = @@ahorcado.actualizar_palabra(@letra)
+	@intento = @@ahorcado.intentos_restantes()
+	erb :inicio
 end
