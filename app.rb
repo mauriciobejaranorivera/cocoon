@@ -3,15 +3,27 @@ require './lib/ahorcado.rb'
 
 configure do
 	@palabra = "cocoon"
-	@@ahorcado = Ahorcado.new(@palabra.length,@palabra)
+	@intento = 6
+	@@ahorcado = Ahorcado.new(@palabra.length, @palabra, @intento)
 end
 
 get '/' do
+	@intento = 6
+	@@ahorcado.reiniciar_intentos(@intento)
 	erb:inicio    
 end
+
 post '/' do
-	erb:inicio    
+    @@ahorcado.descontar_intentos()
+	@intento = @@ahorcado.intentos_restantes()
+	
+	if (@intento < 1)
+		erb:juego_terminado
+	else
+		erb :inicio
+	end    
 end
+
 get '/juego_terminado' do
     erb:juego_terminado
 end

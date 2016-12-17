@@ -1,13 +1,18 @@
 class Ahorcado
-	def initialize(tamano,cadena)
+	def initialize(tamano, cadena, intentos)
 		@tamano = tamano
-		@intentos=6
-		@cadena=cadena
+		@cadena = cadena
+		@intentos = intentos
 	end
+
 	def descontar_intentos()
-	@intentos = @intentos-1
-		
+		@intentos = @intentos - 1		
 	end
+
+	def reiniciar_intentos(intentos)
+		@intentos = intentos		
+	end
+
 	def dibujar_lineas()
 		cadena = ""
 
@@ -19,8 +24,6 @@ class Ahorcado
     end
 
 	def intentos_restantes()
-	return @intentos
+		return @intentos
 	end
-	
-
 end
