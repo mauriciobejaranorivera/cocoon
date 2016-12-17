@@ -5,4 +5,6 @@ describe Ahorcado do
 		palabra_secreta = ahorcado.get_palabra_secreta()
 		palabra_secreta.should =="COCOON"
 	end
+	
+
 end
