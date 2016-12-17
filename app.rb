@@ -42,10 +42,13 @@ post '/comparar_letra' do
 	@intento = @@ahorcado.intentos_restantes()
 	@letras = @@ahorcado.letras_utilizadas()
 	@@ahorcado.actualizar_palabra(@letra)
+	@gano = @@ahorcado.gano()
 	@lineas = 	""
 
 	if (@intento < 1)
 		erb :juego_terminado
+	elsif (@gano == 1)
+		erb :juego_ganado
 	else
 		erb :inicio
 	end  

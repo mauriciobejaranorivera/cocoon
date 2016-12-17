@@ -20,6 +20,17 @@ class Ahorcado
 		@intentos = @intentos - 1		
 	end
 
+	def gano()
+		gano = 0
+
+		if(@pos1 == 1 && @pos2 == 1 && @pos3 == 1 && @pos4 == 1 && @pos5 == 1 && @pos6 == 1)
+			gano = 1
+		else
+			gano = 0
+		end
+
+		return gano
+	end
 	def reiniciar_intentos(intentos)
 		@intentos = intentos		
 	end
