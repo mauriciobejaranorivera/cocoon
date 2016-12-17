@@ -44,6 +44,7 @@ post '/comparar_letra' do
 	@@ahorcado.actualizar_palabra(@letra)
 	@gano = @@ahorcado.gano()
 	@lineas = 	""
+	@pista = @@ahorcado.get_pista()
 
 	if (@intento < 1)
 		erb :juego_terminado

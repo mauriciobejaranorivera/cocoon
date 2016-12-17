@@ -9,7 +9,12 @@ class Ahorcado
 		@pos3 = 0
 		@pos4 = 0
 		@pos5 = 0
-		@pos6 = 0	
+		@pos6 = 0
+	    @pista = "es una pelicula de los 90"	
+	end
+
+	def get_pista()
+		@pista
 	end
 
 	def get_palabra_secreta()
