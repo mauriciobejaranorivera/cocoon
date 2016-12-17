@@ -19,3 +19,12 @@ end
 get '/juego_ganado' do
     erb:juego_ganado
 end
+
+post '/comparar_letra' do
+	@letra = params[:letra]
+	if @letra=='C'
+		"C _ C _ _ _"
+	else
+		"_ _ _ _ _ _"
+	end
+end
