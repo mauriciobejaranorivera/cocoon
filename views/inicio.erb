@@ -2,8 +2,7 @@
 
 <form method='post' action='/comparar_letra'>
 
-	<br><%= @@palabraoculta%></br>
-	<br><%= @lineas %></br>
+	<br><%= @@ahorcado.dibujar_lineas() %></br>
 	<br>ingresar letra:
 	<input type="text" name="letra"/>
 	<input type="submit" name="adivinar" value="adivinar"/>
