@@ -1,11 +1,16 @@
 <h1>Bienvenido al Juego del Ahorcado!</h1>	
 
 <form method='post' action='/comparar_letra'>
+
 	<br><%= @@palabraoculta%></br>
-	
+	<br><%= @lineas %></br>
 	<br>ingresar letra:
-	<input type="text" name="letra"  />
+	<input type="text" name="letra"/>
 	<input type="submit" name="adivinar" value="adivinar"/>
-	intentos restantes: <%= @intento %>
+	</br>
+	<p>
+	Intentos Restantes: <%= @intento %>
 	</br> 
+	Letras Utilizadas: <%= @letras %>
+	</p> 
 </form>

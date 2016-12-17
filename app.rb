@@ -17,6 +17,7 @@ end
 post '/' do
     @@ahorcado.descontar_intentos()
 	@intento = @@ahorcado.intentos_restantes()
+	@letras = @@ahorcado.letras_utilizadas()
 	
 	if (@intento < 1)
 		erb:juego_terminado
@@ -35,7 +36,20 @@ end
 
 post '/comparar_letra' do
 	@letra = params[:letra]
+
 	@@palabraoculta = @@ahorcado.actualizar_palabra(@letra)
+
+	@@ahorcado.anadir_letra(@letra)
+    @@ahorcado.descontar_intentos()
 	@intento = @@ahorcado.intentos_restantes()
-	erb :inicio
+	@letras = @@ahorcado.letras_utilizadas()
+	@lineas = 	""
+
+
+	if (@intento < 1)
+		erb:juego_terminado
+	else
+		erb :inicio
+	end  
+
 end
