@@ -6,6 +6,10 @@ class Ahorcado
 		@letras = ""
 	end
 
+	def get_palabra_secreta()
+		return @cadena
+	end
+
 	def descontar_intentos()
 		@intentos = @intentos - 1		
 	end
