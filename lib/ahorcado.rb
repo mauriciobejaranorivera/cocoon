@@ -14,6 +14,10 @@ class Ahorcado
 		@intentos = intentos		
 	end
 
+	def reiniciar_letras_utilizadas()
+		@letras = ""		
+	end
+
 	def dibujar_lineas()
 		cadena = ""
 
